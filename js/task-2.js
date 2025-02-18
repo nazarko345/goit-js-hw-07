@@ -26,9 +26,8 @@ const images = [
 ];
 
 
-const galleryList = document.querySelectorAll(".gallery");
+const galleryList = document.querySelector(".gallery");
 
-galleryList.forEach((item) => {
   images.forEach((image) => {
     const itemCreation = document.createElement("li");
     itemCreation.classList.add("list-item-s");
@@ -41,8 +40,7 @@ galleryList.forEach((item) => {
     imageCreation.style.height = "320px";
     imageCreation.style.borderRadius = "15px";
 
-    item.append(itemCreation);
+    galleryList.append(itemCreation);
     itemCreation.append(imageCreation);
     console.log(itemCreation);
   });
-});
