@@ -25,22 +25,16 @@ const images = [
   },
 ];
 
-
 const galleryList = document.querySelector(".gallery");
 
-  images.forEach((image) => {
-    const itemCreation = document.createElement("li");
-    itemCreation.classList.add("list-item-s");
+const markup = images
+  .map(
+    (image) => `
+      <li class="list-item-s">
+        <img src="${image.url}" alt="${image.alt}" 
+          style="width: 420px; height: 320px; border-radius: 15px;">
+      </li>`
+  )
+  .join("");
 
-    const imageCreation = document.createElement("img");
-    imageCreation.src = image.url;
-    imageCreation.alt = image.alt;
-    // styles
-    imageCreation.style.width = "420px";
-    imageCreation.style.height = "320px";
-    imageCreation.style.borderRadius = "15px";
-
-    galleryList.append(itemCreation);
-    itemCreation.append(imageCreation);
-    console.log(itemCreation);
-  });
+galleryList.innerHTML = markup;
